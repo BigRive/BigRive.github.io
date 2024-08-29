@@ -1,12 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 	<head>
 		<meta charset="utf-8">
 		<title>首页</title>
+		<link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="bootstrap-icons-1.11.3/font/bootstrap-icons.min.css"/>
+		<link rel="stylesheet" href="css/index.css"/>
+		<link rel="stylesheet" href="css/navbar.css"/>
+		<meta name="description" content="这是一个托管在GitHub上的分享电脑技术、软件资源、技术教程的支持响应式的网站"/>
+		<meta name="keywords" content="电脑技术, Windows运维, 技术教程, 软件资源分享"/>
+		<meta name="author" content="大河小站"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	</head>
 	<body>
-		<div>
-			Hello World!
+		<div class="index_box">
+			<div class="nav_header"></div>
+			<div class="container">
+				<div class="row body">
+					<div class="col-md-8 left">
+						<div class="left_title">
+							<p>分类</p>
+							<div></div>
+						</div>
+							<div class="left_body">
+								<div>
+									<a href="#">
+										<div class="item">
+											<div class="img4">
+												<img src="images/microsoft.png" alt=""/>
+											</div>
+											<p>系统下载</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<div class="item">
+											<i class="bi bi-music-note-beamed"></i>
+											<p>免费听歌</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<div class="item">
+											<div class="img1">
+												<img src="images/钥匙.png" alt=""/>
+											</div>
+											<p>软件激活</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<div class="item">
+											<i class="bi bi-tools"></i>
+											<p>实用工具</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<div class="item">
+											<div class="img2">
+												<img src="images/热点新闻.png" alt=""/>
+											</div>
+											<p>科技热点</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<div class="item">
+											<i class="bi bi-code-slash"></i>
+											<p>代码编程</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<div class="item">
+											<div class="img3">
+												<img src="images/Windows_11_logo.png" alt=""/>
+											</div>
+											<p>windows专栏</p>
+										</div>
+									</a>
+								</div>
+								<div>
+									<a href="#">
+										<div class="item">
+											<div class="img5">
+												<img src="images/科普系列.png" alt=""/>
+											</div>
+											<p>科普系列</p>
+										</div>
+									</a>
+								</div>
+							</div>
+					</div>
+					<div class="col-md-4 right d-none d-md-block">         <!-- 右边部分只在中型及以上屏幕才会显示 -->
+						<div class="right_up">
+							<p class="right_up_time">当前时间</p>
+							<iframe class="click" name="正方向的钟" frameborder="0" src="正方向的钟.html"></iframe>
+							<p class="right_up_day">当前日期</p>
+							<iframe class="digital" name="数码管时钟" frameborder="0" src="数码管时钟.html"></iframe>
+						</div>
+						<div class="right_middle">
+							<div class="right_middle_title">
+								<p>站内公告</p>
+								<div></div>
+							</div>
+							<div class="right_middle_body">
+								<p>暂无公告</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<p>© 2024 - bigriver.github.io 保留所有权利 &nbsp;&nbsp; 原创文章转载时请附带本站原文链接，否则追究法律责任</p>
+			</div>
 		</div>
 	</body>
+	<script src="JQuery/jquery-3.7.1.js"></script>
+	<script src="Bootstrap/js/bootstrap.bundle.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$.get("navbar.txt", function(data) {
+				$(".nav_header").html(data);
+				bindDropdownHover();                           //故障修复：修复了因为模块化导致鼠标放到下拉菜单标题时不会自动展开菜单的问题
+			});
+			function bindDropdownHover(){                       //重新绑定事件
+				$(".dropdown").hover(
+					function() {                                //鼠标移入时添加类名
+						$(this).addClass("show");               //类名“show”是Bootstrap自带的
+						$(this).find(".dropdown-menu").addClass("show");
+					},
+					function() {                                //鼠标移出时删除类名
+						$(this).removeClass("show");
+						$(this).find(".dropdown-menu").removeClass("show");
+					}
+				);
+			}
+		});
+	</script>
 </html>

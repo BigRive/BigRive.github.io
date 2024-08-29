@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数码管时钟</title>
+		<style type="text/css">
+			@font-face{
+				font-family: "Digital-7";
+				src: url("font/digital-7 mono.ttf") format("truetype");   /*引入7段数码管字体文件*/
+			}
+			body{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: 0;
+				background-color: #fff;
+			}
+			.clock{
+				width: 300px;
+				height: 50px;
+				display: flex;
+				align-items: center;
+			}
+			.digit{
+				width: 30px;
+				height: 50px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 2.5rem;
+				color: #dc6a34;
+				font-family: "Digital-7", sans-serif;
+				font-weight: bold;
+			}
+			.dash{
+				font-size: 2.5rem;
+				margin: 0 5px;
+				color: #dc6a34;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock">
+			<div class="digit" id="year1"></div>
+			<div class="digit" id="year2"></div>
+			<div class="digit" id="year3"></div>
+			<div class="digit" id="year4"></div>
+			<div class="dash">-</div>
+			<div class="digit" id="month1"></div>
+			<div class="digit" id="month2"></div>
+			<div class="dash">-</div>
+			<div class="digit" id="day1"></div>
+			<div class="digit" id="day2"></div>
+		</div>
+	</body>
+	<script src="JQuery/jquery-3.7.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function updateClock(){
+				var now = new Date();
+				var year = now.getFullYear().toString();                      //年份
+				var month = (now.getMonth() + 1).toString().padStart(2, "0"); //月份，小于10则补0
+				var day = now.getDate().toString().padStart(2, "0");          //日份，小于10则补0
+				$("#year1").text(year[0]);                                    //填充数据
+				$("#year2").text(year[1]);
+				$("#year3").text(year[2]);
+				$("#year4").text(year[3]);
+				$("#month1").text(month[0]);
+				$("#month2").text(month[1]);
+				$("#day1").text(day[0]);
+				$("#day2").text(day[1]);
+			}
+			setInterval(updateClock, 1000);
+			updateClock();
+		});
+	</script>
+</html>

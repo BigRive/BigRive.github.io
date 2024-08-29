@@ -1,0 +1,49 @@
+body{
+	background-color: #eef5f9
+}
+.navbar-brand span{                              /*导航栏部分的样式*/
+	font-size: 16px;
+}
+.nav_box{
+	padding-left: 7.5rem;
+}
+.li_item{
+	padding-left: 2.5rem;
+}
+/*       ！！！ 开始覆盖Bootstrap默认样式 ！！！      */
+.navbar{                                         /*导航栏整体色调*/
+	width: 100vw !important;
+	background-color: #1e88e5 !important;
+}
+.navbar-toggler{
+	color: #fff !important;
+}
+.navbar-nav .nav-link{
+	color: white !important;
+	display: flex;                               /*启用FlexBox布局*/
+	align-items: center;
+	height: 100%;                                /*确保与父容器高度一致*/
+}
+.navbar-nav .nav-link:hover{
+	color: #22dce5 !important;
+}
+.navbar-brand{                                   /*LOGO字体颜色*/
+	color: white !important;
+}
+.dropdown-menu{                                  /*下拉菜单的颜色*/
+	background-color: #1e88e5 !important;
+}
+.dropdown-item{
+	color: white !important;
+	display: flex;                               /*启用FlexBox布局*/
+	align-items: center;
+	height: 100%;                                /*确保与父容器高度一致*/
+}
+.dropdown-item:hover{
+	color: #22dce5 !important;
+	background-color: #1e88e5 !important;
+}
+.navbar-toggler-icon{
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1.0%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/*                  ----- 结束覆盖 -----            */
