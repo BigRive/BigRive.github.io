@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="bootstrap-icons-1.11.3/font/bootstrap-icons.min.css"/>
 		<link rel="stylesheet" href="css/index.css"/>
 		<link rel="stylesheet" href="css/navbar.css"/>
+		<link rel="stylesheet" href="css/footer.css"/>
 		<meta name="description" content="这是一个托管在GitHub上的分享电脑技术、软件资源、技术教程的支持响应式的网站"/>
 		<meta name="keywords" content="电脑技术, Windows运维, 技术教程, 软件资源分享"/>
 		<meta name="author" content="大河小站"/>
@@ -120,7 +121,7 @@
 				</div>
 			</div>
 			<div class="footer">
-				<p>© 2024 - bigriver.github.io 保留所有权利 &nbsp;&nbsp; 原创文章转载时请附带本站原文链接，否则追究法律责任</p>
+				
 			</div>
 		</div>
 	</body>
@@ -128,9 +129,12 @@
 	<script src="Bootstrap/js/bootstrap.bundle.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$.get("navbar.txt", function(data) {
+			$.get("./Component/navbar.txt", function(data){    //导航栏和版权页独立出来为一个组件
 				$(".nav_header").html(data);
 				bindDropdownHover();                           //故障修复：修复了因为模块化导致鼠标放到下拉菜单标题时不会自动展开菜单的问题
+			});
+			$.get("./Component/footer.txt", function(data){
+				$(".footer").html(data);
 			});
 			function bindDropdownHover(){                       //重新绑定事件
 				$(".dropdown").hover(
