@@ -19,10 +19,13 @@ body{
 	color: #fff !important;
 }
 .navbar-nav .nav-link{
-	color: white !important;
+	color: white;
 	display: flex;                               /*启用FlexBox布局*/
 	align-items: center;
 	height: 100%;                                /*确保与父容器高度一致*/
+}
+.active{
+	color: #22dce5 !important;
 }
 .navbar-nav .nav-link:hover{
 	color: #22dce5 !important;
